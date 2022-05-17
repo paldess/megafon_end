@@ -19,10 +19,11 @@ def save_json(name, data, method='replace'):
     return 'Записано'
 
 def open_json():
-    file_name = 'parametres.json'
-    if os.path.exists(file_name):
+    file_name = 'to_model/parametres.json'
+    if not os.path.exists(file_name):
+        return 'нет такого файла'
+    else:
         with open(file_name, 'r') as f:
             file = json.load(f)
         return file
-    else:
-        return 'нет такого файла'
+
